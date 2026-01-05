@@ -131,6 +131,7 @@ export const EventForm = ({ profiles, initialData, onSubmit, onCancel }) => {
               className="form-input"
               value={formData.startDate}
               onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
+              min={new Date().toISOString().split('T')[0]} 
             />
           </div>
           <div className="form-group">
@@ -152,6 +153,7 @@ export const EventForm = ({ profiles, initialData, onSubmit, onCancel }) => {
               className="form-input"
               value={formData.endDate}
               onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+              min={formData.startDate || new Date().toISOString().split('T')[0]}  
             />
           </div>
           <div className="form-group">
